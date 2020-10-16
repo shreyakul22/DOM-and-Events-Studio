@@ -4,7 +4,7 @@ window.addEventListener('load', (event) => {
     console.log('page is fully loaded');
   });
 
-  function init () {
+  function planeIsReady () {
       let takeOff = document.getElementById("takeoff");
       console.log(typeof takeOff);
       takeOff.addEventListener("click", function(event){
@@ -12,10 +12,26 @@ window.addEventListener('load', (event) => {
           if(window.confirm("ready for takeoff.")) {
             document.getElementById("flightStatus").innerHTML="Shuttle in flight.";
             document.getElementById("shuttleBackground").style.backgroundColor="blue";
-            document.getElementById("spaceShuttleHeight").innerHTML=10000;
+            document.getElementById("spaceShuttleHeight").innerHTML+=10000;
         };
-      }) 
-  }
+      })
+  };
+
+
+
+  function planeIsLanding () {
+    let land= document.getElementById("landing");
+    land.addEventListener("click", function(event){
+      if(window.confirm("ready to land.")) {
+        document.getElementById("flightStatus").innerHTML="The flight is in landing";
+        document.getElementById("shuttleBackground").style.backgroundColor='green';
+        document.getElementById("spaceShuttleHeight").innerHTML=0;
+      }
+    });
+
+  };
+
+  
 
 
         
